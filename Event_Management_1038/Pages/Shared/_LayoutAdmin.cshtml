@@ -1,11 +1,5 @@
 ﻿@* 
-PSEUDOCODE / PLAN:
-- Fix Razor/CSS parsing errors by removing the inline CSS @media rule because Razor treats '@' as start of C#.
-- Preserve all existing styles and layout; remove only the @media block that caused diagnostics.
-- If responsive small-screen behavior is needed later, either:
-  - Move media queries into an external .css file (recommended), or
-  - Escape the '@' as '@@media' in Razor to emit a literal '@media' token.
-- Output: same layout file with the problematic @media block removed.
+
 *@
 
             <!DOCTYPE html>
@@ -39,6 +33,7 @@ PSEUDOCODE / PLAN:
                 <header>
                     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                         <div class="container">
+                
                             <img src="data:image/jpeg;base64,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" alt="Custom Event Logo" style="width: 50px; height: auto;">
                             <a class="navbar-brand" asp-area="" asp-page="/Index">Admin panel</a>
 
@@ -64,6 +59,7 @@ PSEUDOCODE / PLAN:
                                         <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                                     </li>
                                 </ul>
+                  
                                 <partial name="_LoginPartial" />
                             </div>
                         </div>
@@ -72,17 +68,27 @@ PSEUDOCODE / PLAN:
 
                 <div class="container">
                     <div class="row">
+
+
+
                         <!-- Admin Sidebar -->
                         <aside id="adminSidebar" class="collapse d-md-block col-12 col-md-3 col-lg-2 bg-light admin-sidebar p-3">
                             <nav class="nav flex-column" aria-label="Admin navigation">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark"
+                           asp-area=""
+                           asp-page="/Admin/Event_mgnmnt/Index">
+                            Manage Events
+                        </a>
                                 <a class="nav-link" asp-area="" asp-page="/Admin/Index">Dashboard</a>
                                 <a class="nav-link" asp-area="" asp-page="/Admin/Users">Users</a>
-                                <a class="nav-link" asp-area="" asp-page="/Admin/Events">Event_mgnmnt</a>
-                                <a class="nav-link" asp-area="" asp-page="/Admin/Venues">Venues</a>
-                                <a class="nav-link" asp-area="" asp-page="/Admin/Settings">Settings</a>
-                                <a class="nav-link" asp-area="" asp-page="/Admin/Logs">Logs</a>
-                                <hr />
                                 <a class="nav-link" asp-area="" asp-page="/Index">Back to Site</a>
+                                <a class="nav-link" asp-area="" asp-page="/Admin/Events"></a>
+                                <a class="nav-link" asp-area="" asp-page="/Admin/Venues"></a>
+                                <a class="nav-link" asp-area="" asp-page="/Admin/Settings"></a>
+                                <a class="nav-link" asp-area="" asp-page="/Admin/Logs"></a>
+                                <hr />
+                                
                             </nav>
                         </aside>
 
