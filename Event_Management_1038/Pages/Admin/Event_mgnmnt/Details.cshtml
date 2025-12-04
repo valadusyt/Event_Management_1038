@@ -1,0 +1,49 @@
+﻿@page
+@model Event_Management_1038.Pages.Admin.Event_mgnmnt.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Event1038</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event1038.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event1038.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event1038.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event1038.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event1038.IsCanceled)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event1038.IsCanceled)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event1038.VenueId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event1038.VenueId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event1038.Notes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event1038.Notes)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Event1038.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

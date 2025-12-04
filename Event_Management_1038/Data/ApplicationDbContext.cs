@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Event_Management_1038.Models;
 
 namespace Event_Management_1038.Data
 {
@@ -9,5 +10,7 @@ namespace Event_Management_1038.Data
             : base(options)
         {
         }
+
+        public DbSet<Event1038> Events1038 { get; set; }
     }
 }
